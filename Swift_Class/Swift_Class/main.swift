@@ -304,3 +304,5 @@ let student: ExPerson = ExStudent(name: "민수", age: 15, grade: 2, classNumber
 let teacher: ExPerson = ExTeacher(name: "영희", age: 25, subject: "수학")
 student.introduce()
 teacher.introduce()
+
+
