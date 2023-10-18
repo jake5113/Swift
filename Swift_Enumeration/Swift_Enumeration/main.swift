@@ -154,4 +154,80 @@ func ex05() {
     printTypeAndPrice(beverages: beverages)
 }
 
-ex02()
+func ex06() {
+    enum Direction {
+        case up, down, left, right
+    }
+    
+    func move(position: (x: Int, y: Int), direction: Direction) -> (x: Int, y: Int) {
+        switch direction {
+        case .up:
+            (position.x, position.y + 1)
+        case .down:
+            (position.x, position.y - 1)
+        case .left:
+            (position.x - 1, position.y)
+        case .right:
+            (position.x + 1, position.y)
+        }
+    }
+    
+    let currentPosition = (x: 0, y: 0)
+
+    var nextPosition = move(position: currentPosition, direction: .right)
+    print("다음 위치는 (\(nextPosition.x), \(nextPosition.y))입니다.")  // 다음 위치는 (1, 0)입니다.
+
+    nextPosition = move(position: currentPosition, direction: .left)
+    print("다음 위치는 (\(nextPosition.x), \(nextPosition.y))입니다.")  // 다음 위치는 (-1, 0)입니다.
+
+    nextPosition = move(position: currentPosition, direction: .up)
+    print("다음 위치는 (\(nextPosition.x), \(nextPosition.y))입니다.")  // 다음 위치는 (0, 1)입니다.
+
+    nextPosition = move(position: currentPosition, direction: .down)
+    print("다음 위치는 (\(nextPosition.x), \(nextPosition.y))입니다.")  // 다음 위치는 (0, -1)입니다.
+}
+
+func ex07() {
+    enum Dice: Int {
+        case one
+        case two
+        case three
+        case four
+        case five
+        case six
+    }
+    
+    func rollDice() -> Dice {
+        [Dice.one, Dice.two, Dice.three, Dice.four, Dice.five, Dice.six].randomElement()!
+    }
+    let dice = rollDice()
+
+    print("주사위의 면은 \(dice)입니다.")
+}
+
+func ex08() {
+    enum Color {
+        case red (r: Int, g: Int, b: Int)
+        case green (r: Int, g: Int, b: Int)
+        case blue (r: Int, g: Int, b: Int)
+    }
+    
+    func printColors(colors: [Color]) {
+        colors.forEach { Color in
+            switch Color {
+            case .red(let r, let g, let b):
+                print("이 색상은 빨강이고 RGB 값은 (\(r),\(g),\(b)) 입니다.")
+            case .green(let r, let g, let b):
+                print("이 색상은 초록이고 RGB 값은 (\(r),\(g),\(b)) 입니다.")
+            case .blue(let r, let g, let b):
+                print("이 색상은 파랑이고 RGB 값은 (\(r),\(g),\(b)) 입니다.")
+            }
+        }
+    }
+    
+    let colors = [Color.red(r: 255, g: 0, b: 0), Color.green(r: 0, g: 255, b: 0), Color.blue(r: 0, g: 0, b: 255)]
+    printColors(colors: colors)
+    
+}
+
+ex08()
