@@ -258,12 +258,12 @@ func ex05() {
                 throw LibraryError.bookNotFound
             }
 
-            //TODO:!!
-            return ""
+            
+            return books.joined(separator: ", ")
         }
     }
+    let library = Library(books: ["Harry Potter", "The Little Prince", "The Hobbit"], limit: 2)
     
-    let library = Library(books: ["Harry Potter", "The Little Prince", "The Hobbit"], limit: 1)
     do {
         let result = try library.borrow(books: ["Harry Potter", "The Little Prince"])
         print(result)
@@ -277,3 +277,6 @@ func ex05() {
     // limit: 1 일 경우 대출 한도를 초과했습니다.
     // limit: 2 일 경우 The Harry Potter, Little Prince을 대출했습니다.
 }
+
+ex05()
+
