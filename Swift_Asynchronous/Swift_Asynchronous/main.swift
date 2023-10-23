@@ -59,3 +59,32 @@ func asyncPrintSum() async {
 
 await asyncPrintSum()
 
+
+// ------------Actor-------------
+
+
+actor BuildMessage {
+    var message: String = ""
+    let greeting = "hello"
+    
+    func setName(name: String) {
+        self.message = "\(greeting) \(name)"
+    }
+    
+    // 격리에서 제외
+    nonisolated func getGreeting() -> String {
+        return greeting
+    }
+}
+
+func someFunction() async {
+    let builder = BuildMessage()
+    await builder.setName(name: "Jane Smith")
+    let message = await builder.message
+    print(message)
+}
+
+Task {
+    await someFunction()
+}
+
