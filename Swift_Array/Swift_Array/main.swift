@@ -156,6 +156,58 @@ func exArr07() {
     }
 }
 
+func exDict08() {
+    let scores = ["math": 90, "english": 100, "science": 95, "math1": 99]
+    var maxScore = 0
+    var maxKey: String = ""
+    for (k, v) in scores {
+        if v > maxScore {
+            maxScore = v
+            maxKey = k
+        }
+    }
+    print(maxKey)
+}
+
+func exDict09() {
+    let colors = ["red": "#FF0000", "green": "#00FF00", "blue": "#0000FF"]
+    func swapKeyValue(_ dict:[String:String]) -> [String:String] {
+        var newDict: [String:String]
+        newDict = Dictionary(uniqueKeysWithValues: zip(dict.values, dict.keys))
+        return newDict
+    }
+    print(swapKeyValue(colors))
+}
+
+func exDict10() {
+    let dict1 = ["a": 1, "b": 2, "c": 3]
+    let dict2 = ["b": 2, "c": 4, "d": 5]
+    
+    for (key, value) in dict1 {
+        if let value2 = dict2[key] {
+            print("\(key):\(value)")
+            print("\(key):\(value2)")
+        }
+    }
+}
+
+func exDict11() {
+    var even = ["a": 2, "b": 3, "c": 4, "d": 5]
+    for (key, value) in even {
+        if value % 2 == 0 {
+            even[key] = nil
+        }
+    }
+    print(even)
+}
+
+func exDict12() {
+    let countries = ["KR": "South Korea", "US": "United States", "JP": "Japan", "CN": "China"]
+    let sortedKeys = countries.keys.sorted()
+    print(sortedKeys)
+}
+
+exDict12()
 
 func sets() {
     var letters = Set<Character>()
@@ -224,16 +276,4 @@ func exSet04() {
     let isDisjoint = disjoint(setG, setH)
     print(isDisjoint) // true
 }
-
-//func exSet05() {
-//    func getSubsets(_ set:Set<Int>) -> Set<Set<Int>> {
-//        var result:Set<Set<Int>>
-//        var subset:Set<Int>
-//        subset.
-//    }
-//    
-//    let setI: Set<Int> = [1, 2, 3]
-//    let subsets = getSubsets(setI)
-//    print(subsets) // [[], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3]]
-//}
 
