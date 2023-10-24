@@ -207,8 +207,6 @@ func exDict12() {
     print(sortedKeys)
 }
 
-exDict12()
-
 func sets() {
     var letters = Set<Character>()
     
@@ -225,10 +223,10 @@ func sets() {
     let even: Set = [0, 2, 4, 6, 8]
     let single: Set = [2, 3, 5, 7]
     
-    var a = odd.union(even).sorted()    // 합집합
-    var b = odd.subtracting(single)     // 차집합, 특정 집합의 공통된 값을 제외한 새로운 집합을 생성
-    var c = odd.intersection(single)    // 교집합, 공통된 값으로 새로운 집합을 생성
-    var d = odd.symmetricDifference(single) //여집합, 공통된 값을 제외한 새로운 집합을 생성
+    odd.union(even).sorted()    // 합집합
+    odd.subtracting(single)     // 차집합, 특정 집합의 공통된 값을 제외한 새로운 집합을 생성
+    odd.intersection(single)    // 교집합, 공통된 값으로 새로운 집합을 생성
+    odd.symmetricDifference(single) //여집합, 공통된 값을 제외한 새로운 집합을 생성
 }
 
 func exSet01() {
