@@ -13,7 +13,7 @@ struct Person {
     var age: Int?
 }
 
-var person: Person? = Person(name: nil, age: 25)
+var person: Person? = Person(name: "nil", age: nil)
 
 print(person?.name ?? "no value")
 print(person?.age as Any)
@@ -36,13 +36,13 @@ print(book?.author?.name ?? "")
 // 3
 var numbers: [Int]? = [1, 2, 3]
 
-print((numbers?[0])! + 10)
+print( (numbers?[0] ?? 0) + 10)
 
 
 // 4
 var students: [String: Int]? = ["Kim": 90, "Lee": 80, "Park": 85]
 
-print(students?["Lee"] ?? 0 + 1)
+print(( students?["Lee"] ?? 0 ) + 1)
 
 
 // 5
@@ -98,4 +98,7 @@ var students8: [Student]? = [Student(name: "Kim", score: 80),
                             Student(name: "Lee", score: 90),
                             Student(name: "Park", score: 85)]
 
-print((students8?.reduce(into: 0) { $0 += $1.score } ?? 0) / 3)
+print((students8?.reduce(into: 0) { $0 += $1.score } ?? 0) / (students8?.count ?? 1))
+
+var dict: [String:String?]? = ["1":"123", "2":"2"]
+print(dict?["1"]??.count ?? 0)
