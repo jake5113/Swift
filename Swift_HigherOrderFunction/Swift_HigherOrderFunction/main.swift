@@ -162,6 +162,7 @@ func ex16() {
     
     let sentence = "This is a test"
     let noSpaceSentence = removeSpaces(sentence)
+ 
     print(noSpaceSentence)      // "Thisisatest"
 }
 
